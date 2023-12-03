@@ -23,3 +23,10 @@ The image above demostrates the 3 tier architecture in this project.
  11. NAT gataeway to give internet access to the private subnet.
  12. Autoscaling group for the nginx server and webservers 
 
+ EVENTS OF THE PROJECT
+ 
+ - I created an IAM user, named stile and granted the stile  administrativeaccess permissions.
+ - I created secret access key adn access ID for the user.
+ - I created an amazon S3 bucket for storing terrafoarm statefile
+
+
