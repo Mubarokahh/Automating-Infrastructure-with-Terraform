@@ -29,7 +29,13 @@ The image above demostrates the 3 tier architecture in this project.
  - I created secret access key adn access ID for the user.
  - I created an amazon S3 bucket for storing terraform statefile
  - I installed AWS SDK for python, to integrate python application with AWS services.
- - I ran the following commmand to check if i can progrmatically access AWS services ussing AWS CLI
+ - I ran the following command to check if i can progrmatically access AWS services ussing AWS CLI
+    
+    `import boto3
+s3 = boto3.resource('s3')
+for bucket in s3.buckets.all():
+    print(bucket.name)`
+
 
    ![AWS-CLI](Images/AWS-CLI.JPG)
 
