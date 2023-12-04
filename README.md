@@ -27,6 +27,9 @@ The image above demostrates the 3 tier architecture in this project.
  
  - I created an IAM user, named stile and granted the stile  administrativeaccess permissions.
  - I created secret access key adn access ID for the user.
- - I created an amazon S3 bucket for storing terrafoarm statefile
+ - I created an amazon S3 bucket for storing terraform statefile
+ - I installed AWS SDK for python, to integrate python application with AWS services.
+ - I ran the following commmand to check if i can progrmatically access AWS services ussing AWS CLI
 
+   ![AWS-CLI](Images/AWS-CLI.JPG)
 
