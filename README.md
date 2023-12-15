@@ -125,16 +125,14 @@ The second part ? and length(data.aws_availability_zones.available.names) means,
 
       # - Main.tf
 
-       ```
+ ```
        Get list of availability zones
        data "aws_availability_zones" "available" {
        state = "available"
        }
-
        provider "aws" {
         region = var.region
        }
-
       Create VPC
       resource "aws_vpc" "main" {
       cidr_block                     = var.vpc_cidr
@@ -142,9 +140,7 @@ The second part ? and length(data.aws_availability_zones.available.names) means,
       enable_dns_hostnames           = var.enable_dns_support
       enable_classiclink             = var.enable_classiclink
       enable_classiclink_dns_support = var.enable_classiclink
-
       }
-
       Create public subnets
       resource "aws_subnet" "public" {
       count  = var.preferred_number_of_public_subnets == null ? length(data.aws_availability_zones.available.names) : var.preferred_number_of_public_subnets   
@@ -152,8 +148,8 @@ The second part ? and length(data.aws_availability_zones.available.names) means,
       cidr_block              = cidrsubnet(var.vpc_cidr, 4 , count.index)
       map_public_ip_on_launch = true
       availability_zone       = data.aws_availability_zones.available.names[count.index]
-      
-      }```
+       }
+```
 
 
  # -Variable.tf
@@ -212,7 +208,8 @@ The second part ? and length(data.aws_availability_zones.available.names) means,
         `Terraform apply`
 
  
-   ![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/c88d9ef3-05b0-4199-9140-878a23a3370a)
+![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/bc6b3c1f-909f-42c5-8bb2-de93f57358d3)
+
 
 
     
@@ -224,5 +221,6 @@ The second part ? and length(data.aws_availability_zones.available.names) means,
 
     PUBLIC SUBNETS
 
-    ![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/523b6c37-58b7-4720-8b88-e17442cf2dfd)
+  ![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/5e5cc494-8293-4243-81b4-b3ec2838eae4)
+
 
