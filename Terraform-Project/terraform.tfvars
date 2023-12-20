@@ -1,13 +1,3 @@
-region = "us-east-1"
-
-vpc_cidr = "172.16.0.0/16" 
-
-enable_dns_support = "true" 
-
-enable_dns_hostnames = "true"  
-
-enable_classiclink = "false" 
-
-enable_classiclink_dns_support = "false" 
-
-preferred_number_of_public_subnets = 2
+version https://git-lfs.github.com/spec/v1
+oid sha256:e486e3de58ec623bf9ebb4a53fb9268aaa2d1213d8ad85bcd2515ddff165700f
+size 227
