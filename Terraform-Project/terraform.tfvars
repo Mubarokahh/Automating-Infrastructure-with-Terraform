@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:168fe71c2809c35710d11ff6c6e0e6d07d09927f40a4ed7b44f732997ae1f43e
-size 600
+region = "us-east-1"
+
+vpc_cidr = "172.16.0.0/16" 
+
+enable_dns_support = "true" 
+
+enable_dns_hostnames = "true"  
+
+enable_classiclink = "false" 
+
+enable_classiclink_dns_support = "false" 
+
+preferred_number_of_public_subnets = 2
+
+preferred_number_of_private_subnets = 4
+
+
+
+
+tags = {
+  Enviroment      = "production" 
+  Owner-Email     = "wurahorlerh@gmail.com"
+  Managed-By      = "Terraform"
+  Billing-Account = "1234567890"
+ }
+
+name = "Terraform"
+environment = "dev"
+keypair = "devops2"
+ami = "ami-0b98a32b1c5e0d105"
+account_no =  "099720109477"
+db-username = "barakat"
+db-password = "devopspbl"
+
+
+
+
+
