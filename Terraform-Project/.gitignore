@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bd5fe3780b6067bf3afde544cc161058f3b25827b5a1c1fba99147edbb7b2fa
-size 1063
+
+Terraform-Project/.terraform/providers/registry.terraform.io/hashicorp/aws/5.31.0/darwin_arm64/terraform-provider-aws_v5.31.0_x5
+*.terraform
+*.lock*
+*.tfstate
+*.tfstate.backup
