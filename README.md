@@ -253,7 +253,9 @@ for bucket in s3.buckets.all():
   
 }
 ```
-   ![Internet-Gateway](Images/Internet-Gateway.JPG)
+
+
+![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/fe7404b5-ca82-4c63-bba2-c2f6d9fbbec6)
 
 
 
@@ -291,6 +293,9 @@ for bucket in s3.buckets.all():
  
   }
   ```
+
+![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/fabeb2d1-ee8d-444e-a4f7-fe48a44c4554)
+
 
    ## AWS-Routes
 
@@ -1251,6 +1256,52 @@ resource "aws_db_instance" "ACS-rds" {
 }
 ```
 
+- Executing terraform plan to validate all the configurations.
+- Terraform apply to carry set up the configurations.
+
+  ![image](https://github.com/Mubarokahh/Automate-infrastructure-using-terraform/assets/135038657/7e8350c3-b926-4ad3-9e75-4f3eff9e02a3)
+
+  # CREATING S3 AS BACKEND FOR THE STATEFILE
+
+  So far in this project, I have been using the default backend which is the local backend.The local backend requires no configurations and the statefile is stored locally.
+  For this context, i will bw using S3 bucket as backend i've been using AWS for this projects. However, there are other standard backend terraform supports.
+  To reinitialize terraform to use S3 backend, the following will be done.
+
+  - Add S3 and DynamoDB resource blocks before deleting the local state file
+  
+  - Update terraform block to introduce backend and locking
+  
+  - Re-initialize terraform
+  
+  - Delete the local tfstate file and check the one in S3 bucket
+  
+  - Add outputs
+  
+  - terraform apply
+ 
+    Created a file named backend.tf and i sored the following codes in the file.
+
+  ```
+  resource "aws_s3_bucket" "terraform_state" {
+   bucket = "mbarokah-dev-terraform-bucket-2"
+   versioning {
+     enabled = true
+   }
+  # Enable server-side encryption by default
+   server_side_encryption_configuration {
+     rule {
+       apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+ }
+ ```
+  
+
+
+  
+
 
  
 
@@ -1292,4 +1343,3 @@ resource "aws_db_instance" "ACS-rds" {
 
 
 
-xxx
