@@ -1279,7 +1279,7 @@ resource "aws_db_instance" "ACS-rds" {
   
   - terraform apply
  
-    Created a file named backend.tf and i sored the following codes in the file.
+    ## Created a file named backend.tf and i sored the following codes in the file.
 
   ```
   resource "aws_s3_bucket" "terraform_state" {
@@ -1295,9 +1295,24 @@ resource "aws_db_instance" "ACS-rds" {
       }
     }
   }
- }
- ```
+  ```
+
+  ## DynamoDB
+
+  - DynamoDB will be created to handle locks and perform consistency check.
+
   
+```
+resource "aws_dynamodb_table" "terraform_locks" {
+  name         = "terraform-locks"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
+```
 
 
   
