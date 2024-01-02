@@ -1,5 +1,5 @@
   resource "aws_s3_bucket" "terraform_state" {
-  bucket = "dele-dev-terraform-bucket-2"
+  bucket = "mbarokah-dev-terraform-bucket-2"
   versioning {
     enabled = true
   }
