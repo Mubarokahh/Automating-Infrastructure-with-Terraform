@@ -1279,7 +1279,9 @@ resource "aws_db_instance" "ACS-rds" {
   
   - terraform apply
  
-    ## Created a file named backend.tf and i sored the following codes in the file.
+    ## Created a file named backend.tf and  stored the following codes in the file.
+
+    I enabled versioning so we can see the full revision history of our state files
 
   ```
   resource "aws_s3_bucket" "terraform_state" {
@@ -1294,6 +1296,7 @@ resource "aws_db_instance" "ACS-rds" {
         sse_algorithm = "AES256"
       }
     }
+  }
   }
   ```
 
@@ -1315,10 +1318,43 @@ resource "aws_dynamodb_table" "terraform_locks" {
 ```
 
 
+  ## S3 backend resource block
+
+  ```
+  terraform {
+  backend "s3" {
+    bucket         = "mbarokah-dev-terraform-bucket-2"
+    key            = "global/s3/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
+```
+
+   - Output from running terraform apply
+
+    ![S3-CONFIG](Images/S3-CONFIG.JPG)
+
+    ![DynamoDB](Images/DynamoDB.PNG)
+    
+    ![S3-Bucket](Images/S3-Bucket.JPG)
+
   
+  - Ruuning 'terraform init' to reinitialize the backend to the statefile can be stored in S3and locked by DynamoDB.
 
-
+  - Updating the output.tf file with the following code snippet so that the S3 bucket Amazon Resource Names ARN and DynamoDB table name can be displayed.
  
+ ```
+ output "s3_bucket_arn" {
+  value       = aws_s3_bucket.terraform_state.arn
+  description = "The ARN of the S3 bucket"
+}
+output "dynamodb_table_name" {
+  value       = aws_dynamodb_table.terraform_locks.name
+  description = "The name of the DynamoDB table"
+}
+```
 
 
 

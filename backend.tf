@@ -1,3 +1,5 @@
+  
+  # versioning enables to view history of our state files
   resource "aws_s3_bucket" "terraform_state" {
   bucket = "mbarokah-dev-terraform-bucket-2"
   versioning {
@@ -24,3 +26,17 @@ resource "aws_dynamodb_table" "terraform_locks" {
     type = "S"
   }
 }
+
+
+  ## S3 backend resource block
+
+  terraform {
+  backend "s3" {
+    bucket         = "mbarokah-dev-terraform-bucket-2"
+    key            = "global/s3/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
+ 
