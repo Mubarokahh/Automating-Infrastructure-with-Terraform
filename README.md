@@ -1334,11 +1334,11 @@ resource "aws_dynamodb_table" "terraform_locks" {
 
    - Output from running terraform apply
 
-    ![S3-CONFIG](Images/S3-CONFIG.JPG)
+ ![S3-CONFIG](Images/S3-CONFIG.JPG)
 
-    ![DynamoDB](Images/DynamoDB.PNG)
-    
-    ![S3-Bucket](Images/S3-Bucket.JPG)
+  ![DynamoDB](Images/DynamoDB.PNG)
+
+  ![S3-Bucket](Images/S3-Bucket.JPG)
 
   
   - Ruuning 'terraform init' to reinitialize the backend to the statefile can be stored in S3and locked by DynamoDB.
