@@ -1264,7 +1264,7 @@ resource "aws_db_instance" "ACS-rds" {
   # CREATING S3 AS BACKEND FOR THE STATEFILE
 
   So far in this project, I have been using the default backend which is the local backend.The local backend requires no configurations and the statefile is stored locally.
-  For this context, i will bw using S3 bucket as backend i've been using AWS for this projects. However, there are other standard backend terraform supports.
+  For this context, i will use S3 bucket as backend since i've been using AWS for this projects. However, there are other standard backend terraform supports.
   To reinitialize terraform to use S3 backend, the following will be done.
 
   - Add S3 and DynamoDB resource blocks before deleting the local state file
