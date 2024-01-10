@@ -237,7 +237,7 @@ for bucket in s3.buckets.all():
 
    ## Create Internet-Gateway
 
-  The format funtion wil be used in order to name the resource uniquely in the provider, According to the code below, The first placeholder interpolates the value of the VPC id and the second placeholder takes the literal string of IG.
+  The format function wil be used in order to name the resource uniquely in the provider, According to the code below, The first placeholder interpolates the value of the VPC id and the second placeholder takes the literal string of IG.
 
   ``` resource "aws_internet_gateway" "ig" {
     vpc_id = aws_vpc.main.id
@@ -262,6 +262,7 @@ for bucket in s3.buckets.all():
    ## Create NAT-Gateway
       
       The Nat-Gateway, which allow the resources connectes to it to initiate outbound traffic while preventing inbound traffic to these resources. Cretaed one nat-gateway and an elastic-IP (EIP) that will be attached to the Nat-Gateway.
+
 
 
   ```
